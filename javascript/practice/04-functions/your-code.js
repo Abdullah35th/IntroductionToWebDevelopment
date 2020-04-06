@@ -4,11 +4,13 @@
 
 // 1. ADD TWO NUMBERS
 // ==================
-// Complete the following function. 
+// Complete the following function.
 // Write code to add firstNumber and secondNumber and then return the result.
 
 function addTwoNumbers(firstNumber, secondNumber) {
     // your code goes here
+    var result = firstNumber + secondNumber;
+    return result;
 }
 
 // Open index.html in your browser, open the JavaScript console, confirm the result.
@@ -23,7 +25,7 @@ console.log("112 + 0 -> expected: 112, actual: %s", result);
 result = addTwoNumbers(-53, 40);
 console.log("-53 + 40 -> expected: -13, actual: %s", result);
 
-// 2. FIRST LETTER IN A PHRASE 
+// 2. FIRST LETTER IN A PHRASE
 //   (first character in a string)
 // =============================
 // Complete the following function.
@@ -32,6 +34,9 @@ console.log("-53 + 40 -> expected: -13, actual: %s", result);
 // Hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#Character_access
 function getFirstCharacter(text) {
     // your code goes here.
+    var getFirstCharacter = text;
+    return text;
+
 }
 
 console.log("getFirstCharacter =====");
