@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Display Evens Code Along</title>
+
+
+
+</head>
+
+<body>
+
+
+  <script type="text/javascript">
+
+    function hatsOff(){
+      let firstNum = parseInt(document.getElementById("firstNumber").value);
+      let secondNum = parseInt(document.getElementById("second-number").value);
+      let stepCounter =  parseInt(document.getElementById("step").value);
+
+      document.getElementById("texts").innerHTML = "Here are the even numbers between "+ firstNum + " and " + secondNum+" by " + stepCounter;
+
+    if(firstNum > secondNum){
+      alert("Sorry, please try again.");
+      return;
+    }
+
+
+      let an = "; "
+      for(let x = firstNum; x <= secondNum; x = x+stepCounter){
+        //console.log(x);
+        if(x%2===0){
+         an = an+ "<br>"+x;
+        //console.log(x);
+        }
+      }
+
+
+
+
+      //console.log(an);
+     document.getElementById("ans").innerHTML = an;
+
+    }
+
+  </script>
+  <style type="text/css">
+
+
+
+
+  </style>
+
+
+
+
+<h1>Display Evens</h1>
+First Number: <input id="firstNumber" type="number"><br><br>
+Second Number: <input id="second-number" type="number"><br><br>
+Step: <input id="step" type="number">
+<br><br>
+<button id="calculate" onClick="hatsOff()">Calculate</button>
+<table id="results" class="table table-striped" style="display: none">
+
+<p id  = "texts"> </p>
+<p id  = "ans"> </p>
+
+
+<!-- <br><br><hr>
+<h2>Results:</h2>
+<table>
+  <tr>
+    <td>Addition:</td>
+    <td id="add"></td>
+  </tr>
+    <tr>
+    <td>Subtraction:</td>
+    <td id="sub"></td>
+  </tr>
+    <tr>
+    <td>Division:</td>
+    <td id="div"></td>
+  </tr>
+    <tr>
+    <td>Multiplication:</td>
+    <td id="mult"></td>
+  </tr>
+</table> -->
+</body>
+
+</html>
