@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Lucky 7's</title>
+    <style>
+
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    </style>
+
+</head>
+
+<body>
+
+
+  <!-- As a heading -->
+  <nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Lucky 7's</span>
+  </nav>Starting bet: <input id="firstNumber" type="number"><br><br>
+
+<br><br>
+<button id="calculate" onClick="hatsOff()">Play</button>
+<hr>
+
+<!-- <table style="width:100%">
+  <tr>
+    <td>Starting Bet</td>
+    <td><p id="startingBet"></p></td>
+  </tr>
+  <tr>
+    <td>Total Rolls Before Going Broke</td>
+    <td><p id="totalRoll"></p></td>
+  </tr>
+  <tr>
+    <td>Highest Amount Won</td>
+    <td><p id="highestWon"></p></td>
+  </tr>
+  <tr>
+    <td>Roll Count at Highest Amount Won</td>
+    <td><p id="rollCountHighestWon"></p></td>
+  </tr>
+</table> -->
+
+<div class="container">
+  <div class="row">
+<div class="col-md-2"></div>
+
+    <div class="col-md-8">
+      <table class="table table-hover table-dark">
+        <thead>
+          <tr>
+              <td>Starting Bet</td>
+          <td><p id="startingBet"></p></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Total Rolls Before Going Broke</td>
+          <td><p id="totalRoll"></p></td>
+          </tr>
+          <tr>
+            <td>Highest Amount Won</td>
+          <td><p id="highestWon"></p></td>
+          </tr>
+          <tr>
+              <td>Roll Count at Highest Amount Won</td>
+          <td><p id="rollCountHighestWon"></p></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+
+    </div>
+<div class="col-md-2"></div>
+  </div>
+</div>
+
+
+
+
+<!-- <table class="table table-hover table-dark"; "width:75%">
+  <thead>
+    <tr>
+        <td>Starting Bet</td>
+    <td><p id="startingBet"></p></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Total Rolls Before Going Broke</td>
+    <td><p id="totalRoll"></p></td>
+    </tr>
+    <tr>
+      <td>Highest Amount Won</td>
+    <td><p id="highestWon"></p></td>
+    </tr>
+    <tr>
+        <td>Roll Count at Highest Amount Won</td>
+    <td><p id="rollCountHighestWon"></p></td>
+    </tr>
+  </tbody>
+</table> -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+  function hatsOff(){
+    let firstNum = parseInt(document.getElementById("firstNumber").value);
+
+
+
+document.getElementById("startingBet").innerHTML = "$"+ firstNum;
+  if(firstNum < 0 ){
+
+    return;
+  }
+let money = firstNum;
+let totalRoll = 0;
+let highestWon = 0;
+let rollCountHighestWon = 0;
+
+while(money >0) {
+  let dice1 = rollDice();
+  let dice2 = rollDice();
+  if ((dice1+dice2) ===7){
+    money = money+4;
+  }else {
+    money = money-1;
+  }
+
+if (highestWon < money ){
+  highestWon = money;
+  rollCountHighestWon = totalRoll +1;
+}
+
+  totalRoll++;
+}
+document.getElementById("totalRoll").innerHTML = totalRoll;
+document.getElementById("highestWon").innerHTML = "$"+highestWon;
+document.getElementById("rollCountHighestWon").innerHTML = rollCountHighestWon;
+}
+
+ function rollDice(){
+   return Math.floor(Math.random() * Math.floor(6))+1;
+ }
+
+</script>
